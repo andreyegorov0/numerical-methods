@@ -15,27 +15,27 @@ PLOT_N = 100
 
 
 def exact_solution(x):
-    # return x + np.exp(-x) #1
+    return x + np.exp(-x) #1
     # return 1.0 #2
     # return (25.0 + 27.0*np.cos (2*x)) / (160*math.pi) #3
     # return np.cos (2*x) #5
-    return x #8
+    # return x #8
 
 
 def K(x, t):
-    # return x*np.exp(t)/2 #1
+    return x*np.exp(t)/2 #1
     # return np.sin (x*t) #2
     # return -1 / (4 * math.pi * (np.sin ((x + t) / 2)**2 + 0.25 * np.cos ((x + t)/2)**2)) #3
     # return -np.sin (x)*np.cos (t) #5
-    return x*t/2
+    # return x*t/2
 
 
 def f(x):
-    # return np.exp(-x) #1
+    return np.exp(-x) #1
     # return 1.0 + (np.cos (x/2) - 1)/x #2
     # return (5.0 + 3.0*np.cos (2*x)) / (16*math.pi) #3
     # return np.cos (2*x) #5
-    return 5*x/6
+    # return 5*x/6
 
 
 def mesh(a, b, n):
@@ -168,24 +168,6 @@ while l2_norm(a, b, lambda x: (u(x, a, b, u_1) - u(x, a, b, u_2))**2)>eps:
 
 print ("Отклонение по норме в L2 от точного решения:")
 print (  l2_norm (a, b, lambda x: (u(x, a, b, u_2) -  exact_solution (x))**2))
-
-# xList = np.linspace (a, b, PLOT_N)
-# uList = np.array ([u_find (x,  a, b,uNext) for x in xList])
-# sList = np.array ([exact_solution (x) for x in xList])
-# devList = np.abs (uList - sList)
-# maxDev = devList.max ()
-    
-# print ("Отклонение по норме в C [{0}, {1}] от точного решения:".format (a, b))
-# print (maxDev)
-    
-# pylab.plot (xList, uList, color = 'red')
-# pylab.plot (xList, sList, color = 'black', linestyle = 'dashed')
-# plt.show()
-
-
-
-
-
 
 xList = mesh(a, b, PLOT_N)
 uList = np.array ([u(x, a, b, u_1) for x in xList])
