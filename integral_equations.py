@@ -40,7 +40,7 @@ def f(x):
 
 def mesh(a, b, n):
     h_mesh = (b-a) / n
-    return np.array([i * h_mesh for i in range(n+1)], dtype='float64')
+    return np.array([a+i * h_mesh for i in range(n+1)], dtype='float64')
 
 def integral(x, y, g, h_1):
     return (g(x) + g(y)) * h_1 / 2
